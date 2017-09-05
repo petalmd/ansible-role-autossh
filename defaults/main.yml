@@ -1,0 +1,11 @@
+---
+autossh_ssh_port: 22
+autossh_tunnel_node: false
+autossh_daemon_name: autossh-tunnel.service
+autossh_daemon_description: autossh-tunnel
+autossh_username: tunnel_user
+autossh_server_ip: 127.0.0.1
+autossh_local_or_remote_switch: L
+autossh_to_port: 8080
+autossh_from_port: 8080
+

@@ -1,0 +1,15 @@
+---
+- name: Install AutoSSH package
+  yum: name=autossh state=installed
+  when: autossh_tunnel_node
+
+- name: Install daemon config for autossh
+  template: src=autossh-template.service dest=/etc/systemd/system/{{ autossh_daemon_name }}
+  notify: systemctl daemon-reload
+  when: autossh_tunnel_node
+
+- name: Start and enable on startup the autossh daemon
+  service: name={{ autossh_daemon_name }} state=running enabled=yes
+  when: autossh_tunnel_node
+
+

@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: Julien Vigneux-Salesse
+  description: An Ansible role for installing and setting up an AutoSSH daemon
+  company: PetalMD
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+    - name: EL
+      versions:
+      - 7
+  categories:
+    - ssh

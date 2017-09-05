@@ -1,0 +1,10 @@
+[Unit]
+Description=AutoSSH tunnel for {{ autossh_daemon_description }}
+After=network.target
+
+[Service]
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/bin/autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" {{ autossh_username }}@{{ autossh_server_ip }} -i /home/{{ autossh_username }}/.ssh/id_rsa -N -{{ autossh_local_or_remote_switch }} {{ autossh_to_port}}:127.0.0.1:{{ autossh_from_port}}
+
+[Install]
+WantedBy=multi-user.target
